@@ -24,17 +24,24 @@ export function CapabilitySection({ category, channel }: CapabilitySectionProps)
 
   return (
     <section>
-      <div className="border-y border-zinc-100 bg-zinc-50 px-5 py-2.5">
-        <h2 className="text-[11px] font-semibold uppercase tracking-widest text-zinc-400">
-          {category.name}
-        </h2>
-        {category.description ? (
-          <p className="mt-0.5 text-xs normal-case text-zinc-400">
-            {category.description}
-          </p>
-        ) : null}
+      <div className="border-y border-fynd-iron bg-fynd-surface-20 px-5 py-3">
+        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 className="text-[11px] font-semibold uppercase tracking-widest text-fynd-muted">
+              {category.name}
+            </h2>
+            {category.description ? (
+              <p className="mt-0.5 text-xs normal-case text-fynd-muted">
+                {category.description}
+              </p>
+            ) : null}
+          </div>
+          <span className="w-fit rounded-full bg-white px-2.5 py-1 text-[11px] font-medium text-fynd-subdued ring-1 ring-fynd-border">
+            {capabilities.length}
+          </span>
+        </div>
       </div>
-      <div className="grid grid-cols-1 gap-px bg-zinc-100 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-px bg-fynd-iron sm:grid-cols-2">
         {capabilities.map((capability) => (
           <CapabilityCard
             key={capability.id}

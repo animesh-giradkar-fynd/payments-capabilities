@@ -14,20 +14,22 @@ export default function MerchantPage() {
   const { data, error } = useCapabilities()
 
   return (
-    <main className="min-h-screen bg-zinc-50 pb-10">
+    <main className="min-h-screen bg-fynd-surface-20 pb-10">
       <CapabilityHero data={data} />
 
-      <section className="mx-auto w-full max-w-6xl overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-sm">
+      <section className="mx-auto w-[calc(100%-2rem)] max-w-6xl overflow-hidden rounded-lg border border-fynd-border bg-white shadow-fynd sm:w-[calc(100%-3rem)]">
         <ChannelTabs
           activeChannel={activeChannel}
           onChange={setActiveChannel}
         />
-        <p className="border-b border-zinc-100 bg-zinc-50 px-6 py-3 text-xs text-zinc-500">
-          {CHANNEL_SUBTEXT[activeChannel]}
-        </p>
+        <div className="border-b border-fynd-iron bg-fynd-surface-10 px-5 py-3 sm:px-6">
+          <p className="max-w-3xl text-xs leading-5 text-fynd-subdued">
+            {CHANNEL_SUBTEXT[activeChannel]}
+          </p>
+        </div>
 
         {error ? (
-          <div className="border-b border-amber-100 bg-amber-50 px-6 py-3 text-xs text-amber-700">
+          <div className="border-b border-fynd-warning-20 bg-fynd-warning-20 px-6 py-3 text-xs text-fynd-warning-80">
             Showing local capability data because the committed JSON could not
             be fetched.
           </div>

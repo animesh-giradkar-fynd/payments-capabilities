@@ -32,17 +32,17 @@ export function merchantStatus(status: SupportStatus): SupportStatus {
 export function statusDotColor(status: SupportStatus): string {
   switch (merchantStatus(status)) {
     case 'supported':
-      return 'bg-green-600'
+      return 'bg-fynd-success-50'
     case 'partial':
-      return 'bg-amber-500'
+      return 'bg-fynd-warning-50'
     case 'planned':
-      return 'bg-violet-500'
+      return 'bg-fynd-primary'
     case 'not-supported':
-      return 'bg-zinc-300'
+      return 'bg-fynd-border'
     case 'na':
-      return 'bg-zinc-200'
+      return 'bg-fynd-iron'
     default:
-      return 'bg-zinc-300'
+      return 'bg-fynd-border'
   }
 }
 
@@ -85,19 +85,19 @@ export function statusAdminLabel(status: SupportStatus): string {
 export function statusAdminColors(status: SupportStatus): string {
   switch (status) {
     case 'supported':
-      return 'border-green-200 bg-green-50 text-green-700'
+      return 'border-fynd-success-20 bg-fynd-success-20 text-fynd-success-80'
     case 'partial':
-      return 'border-amber-200 bg-amber-50 text-amber-700'
+      return 'border-fynd-warning-20 bg-fynd-warning-20 text-fynd-warning-80'
     case 'wip':
-      return 'border-orange-200 bg-orange-50 text-orange-700'
+      return 'border-fynd-warning-20 bg-fynd-warning-20 text-fynd-warning-80'
     case 'planned':
-      return 'border-violet-200 bg-violet-50 text-violet-700'
+      return 'border-fynd-primarySoft bg-fynd-primarySoft text-fynd-primaryHover'
     case 'not-supported':
-      return 'border-zinc-200 bg-zinc-50 text-zinc-500'
+      return 'border-fynd-border bg-fynd-surface-20 text-fynd-muted'
     case 'na':
-      return 'border-zinc-200 bg-white text-zinc-400'
+      return 'border-fynd-border bg-white text-fynd-muted'
     default:
-      return 'border-zinc-200 bg-white text-zinc-600'
+      return 'border-fynd-border bg-white text-fynd-subdued'
   }
 }
 

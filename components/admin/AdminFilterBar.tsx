@@ -26,10 +26,10 @@ export function AdminFilterBar({
   onAddCapability,
 }: AdminFilterBarProps) {
   return (
-    <div className="flex flex-col gap-3 rounded-lg border border-zinc-200 bg-white p-3 sm:flex-row sm:items-center">
+    <div className="flex flex-col gap-3 rounded-lg border border-fynd-border bg-white p-3 shadow-fynd sm:flex-row sm:items-center">
       <label className="relative min-w-0 flex-1">
         <Search
-          className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400"
+          className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-fynd-muted"
           aria-hidden="true"
         />
         <input
@@ -37,7 +37,7 @@ export function AdminFilterBar({
           value={search}
           onChange={(event) => onSearchChange(event.target.value)}
           placeholder="Search capabilities"
-          className="h-10 w-full rounded-md border border-zinc-200 bg-white pl-9 pr-3 text-sm text-zinc-800 outline-none transition-colors placeholder:text-zinc-400 focus:border-zinc-400"
+          className="h-10 w-full rounded border border-fynd-border bg-white pl-9 pr-3 text-sm text-fynd-mako outline-none transition-colors placeholder:text-fynd-muted focus:border-fynd-primary"
         />
       </label>
 
@@ -46,7 +46,7 @@ export function AdminFilterBar({
         onChange={(event) =>
           onChannelFilterChange(event.target.value as ChannelFilter)
         }
-        className="h-10 rounded-md border border-zinc-200 bg-white px-3 text-sm text-zinc-700 outline-none transition-colors focus:border-zinc-400"
+        className="h-10 rounded border border-fynd-border bg-white px-3 text-sm text-fynd-mako outline-none transition-colors focus:border-fynd-primary"
         aria-label="Filter by channel"
       >
         <option value="all">All channels</option>
@@ -57,12 +57,12 @@ export function AdminFilterBar({
         </option>
       </select>
 
-      <label className="inline-flex h-10 items-center gap-2 rounded-md border border-zinc-200 px-3 text-sm font-medium text-zinc-600">
+      <label className="inline-flex h-10 items-center gap-2 rounded border border-fynd-border px-3 text-sm font-medium text-fynd-subdued">
         <input
           type="checkbox"
           checked={gapsOnly}
           onChange={(event) => onGapsOnlyChange(event.target.checked)}
-          className="h-4 w-4 rounded border-zinc-300 text-zinc-900"
+          className="h-4 w-4 rounded border-fynd-border accent-fynd-primary"
         />
         Gaps only
       </label>
@@ -70,7 +70,7 @@ export function AdminFilterBar({
       <button
         type="button"
         onClick={onAddCapability}
-        className="inline-flex h-10 items-center justify-center gap-2 rounded-md bg-zinc-900 px-4 text-sm font-medium text-white transition-colors hover:bg-zinc-800"
+        className="inline-flex h-10 items-center justify-center gap-2 rounded bg-fynd-primary px-4 text-sm font-medium text-white transition-colors hover:bg-fynd-primaryHover"
       >
         <Plus className="h-4 w-4" aria-hidden="true" />
         Add

@@ -79,7 +79,7 @@ export default function AdminPage() {
       <AdminHeader isDirty={isDirty} diffSummary={diffSummary} />
 
       {error ? (
-        <div className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-700">
+        <div className="rounded border border-fynd-warning-20 bg-fynd-warning-20 px-4 py-3 text-sm text-fynd-warning-80">
           Showing fallback data because committed JSON could not be fetched.
         </div>
       ) : null}
@@ -102,7 +102,7 @@ export default function AdminPage() {
       />
 
       {loading ? (
-        <div className="rounded-lg border border-zinc-200 bg-white p-6 text-sm text-zinc-400">
+        <div className="rounded-lg border border-fynd-border bg-white p-6 text-sm text-fynd-muted shadow-fynd">
           Loading capabilities...
         </div>
       ) : (

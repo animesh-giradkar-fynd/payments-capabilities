@@ -150,31 +150,31 @@ export function AddCapabilityModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/30 px-4 py-6"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-fynd-text/30 px-4 py-6"
       role="dialog"
       aria-modal="true"
       aria-labelledby="add-capability-title"
     >
       <form
         onSubmit={onSubmit}
-        className="max-h-full w-full max-w-2xl overflow-y-auto rounded-xl border border-zinc-200 bg-white shadow-xl"
+        className="max-h-full w-full max-w-2xl overflow-y-auto rounded-lg border border-fynd-border bg-white shadow-xl"
       >
-        <div className="flex items-center justify-between border-b border-zinc-100 px-5 py-4">
+        <div className="flex items-center justify-between border-b border-fynd-iron px-5 py-4">
           <div>
             <h2
               id="add-capability-title"
-              className="text-base font-semibold text-zinc-900"
+              className="text-base font-semibold text-fynd-text"
             >
               Add capability
             </h2>
-            <p className="mt-1 text-xs text-zinc-400">
+            <p className="mt-1 text-xs text-fynd-muted">
               New rows are saved to localStorage until exported.
             </p>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="inline-flex h-8 w-8 items-center justify-center rounded-md text-zinc-400 transition-colors hover:bg-zinc-50 hover:text-zinc-700"
+            className="inline-flex h-8 w-8 items-center justify-center rounded text-fynd-muted transition-colors hover:bg-fynd-surface-20 hover:text-fynd-text"
             aria-label="Close"
           >
             <X className="h-4 w-4" aria-hidden="true" />
@@ -182,12 +182,12 @@ export function AddCapabilityModal({
         </div>
 
         <div className="grid gap-4 px-5 py-5">
-          <label className="grid gap-1.5 text-xs font-medium text-zinc-500">
+          <label className="grid gap-1.5 text-xs font-medium text-fynd-subdued">
             Category
             <select
               value={categoryId}
               onChange={(event) => setCategoryId(event.target.value)}
-              className="h-10 rounded-md border border-zinc-200 bg-white px-3 text-sm text-zinc-800 outline-none focus:border-zinc-400"
+              className="h-10 rounded border border-fynd-border bg-white px-3 text-sm text-fynd-mako outline-none focus:border-fynd-primary"
             >
               {categories.map((category) => (
                 <option key={category.id} value={category.id}>
@@ -197,30 +197,33 @@ export function AddCapabilityModal({
             </select>
           </label>
 
-          <label className="grid gap-1.5 text-xs font-medium text-zinc-500">
+          <label className="grid gap-1.5 text-xs font-medium text-fynd-subdued">
             Name
             <input
               value={name}
               onChange={(event) => setName(event.target.value)}
-              className="h-10 rounded-md border border-zinc-200 px-3 text-sm text-zinc-800 outline-none focus:border-zinc-400"
+              className="h-10 rounded border border-fynd-border px-3 text-sm text-fynd-mako outline-none focus:border-fynd-primary"
               required
             />
           </label>
 
-          <label className="grid gap-1.5 text-xs font-medium text-zinc-500">
+          <label className="grid gap-1.5 text-xs font-medium text-fynd-subdued">
             Description
             <textarea
               value={description}
               onChange={(event) => setDescription(event.target.value)}
               rows={3}
-              className="resize-none rounded-md border border-zinc-200 px-3 py-2 text-sm text-zinc-800 outline-none focus:border-zinc-400"
+              className="resize-none rounded border border-fynd-border px-3 py-2 text-sm text-fynd-mako outline-none focus:border-fynd-primary"
               required
             />
           </label>
 
           <div>
-            <div className="mb-2 flex items-center gap-2 text-xs font-medium text-zinc-500">
-              <SelectedIcon className="h-4 w-4 text-zinc-500" aria-hidden="true" />
+            <div className="mb-2 flex items-center gap-2 text-xs font-medium text-fynd-subdued">
+              <SelectedIcon
+                className="h-4 w-4 text-fynd-primaryHover"
+                aria-hidden="true"
+              />
               Icon
             </div>
             <div className="grid grid-cols-5 gap-2 sm:grid-cols-10">
@@ -231,8 +234,9 @@ export function AddCapabilityModal({
                   title={key}
                   onClick={() => setIcon(key)}
                   className={classNames(
-                    'flex h-10 items-center justify-center rounded-md border border-zinc-200 text-zinc-500 transition-colors hover:bg-zinc-50',
-                    icon === key && 'ring-2 ring-violet-500',
+                    'flex h-10 items-center justify-center rounded border border-fynd-border text-fynd-subdued transition-colors hover:bg-fynd-primarySoft hover:text-fynd-primaryHover',
+                    icon === key &&
+                      'border-fynd-primary bg-fynd-primarySoft text-fynd-primaryHover ring-2 ring-fynd-primary',
                   )}
                   aria-label={key}
                 >
@@ -246,7 +250,7 @@ export function AddCapabilityModal({
             {CHANNEL_KEYS.map((channel) => (
               <label
                 key={channel}
-                className="grid gap-1.5 text-xs font-medium text-zinc-500"
+                className="grid gap-1.5 text-xs font-medium text-fynd-subdued"
               >
                 {CHANNEL_FULL_LABELS[channel]}
                 <StatusSelect
@@ -261,38 +265,38 @@ export function AddCapabilityModal({
           </div>
 
           <div className="flex flex-wrap gap-4">
-            <label className="inline-flex items-center gap-2 text-sm text-zinc-600">
+            <label className="inline-flex items-center gap-2 text-sm text-fynd-subdued">
               <input
                 type="checkbox"
                 checked={showOnMerchantView}
                 onChange={(event) => setShowOnMerchantView(event.target.checked)}
-                className="h-4 w-4 rounded border-zinc-300"
+                className="h-4 w-4 rounded border-fynd-border accent-fynd-primary"
               />
               Show on merchant view
             </label>
-            <label className="inline-flex items-center gap-2 text-sm text-zinc-600">
+            <label className="inline-flex items-center gap-2 text-sm text-fynd-subdued">
               <input
                 type="checkbox"
                 checked={internalOnly}
                 onChange={(event) => setInternalOnly(event.target.checked)}
-                className="h-4 w-4 rounded border-zinc-300"
+                className="h-4 w-4 rounded border-fynd-border accent-fynd-primary"
               />
               Internal only
             </label>
           </div>
         </div>
 
-        <div className="flex justify-end gap-2 border-t border-zinc-100 px-5 py-4">
+        <div className="flex justify-end gap-2 border-t border-fynd-iron px-5 py-4">
           <button
             type="button"
             onClick={onClose}
-            className="h-9 rounded-md border border-zinc-200 px-3 text-sm font-medium text-zinc-600 transition-colors hover:bg-zinc-50"
+            className="h-9 rounded border border-fynd-border px-3 text-sm font-medium text-fynd-subdued transition-colors hover:bg-fynd-surface-20"
           >
             Cancel
           </button>
           <button
             type="submit"
-            className="h-9 rounded-md bg-zinc-900 px-3 text-sm font-medium text-white transition-colors hover:bg-zinc-800"
+            className="h-9 rounded bg-fynd-primary px-3 text-sm font-medium text-white transition-colors hover:bg-fynd-primaryHover"
           >
             Add capability
           </button>

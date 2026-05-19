@@ -79,7 +79,7 @@ export function CapabilityTable({
   const hasRows = categories.some((category) => category.capabilities.length > 0)
 
   return (
-    <div className="overflow-hidden rounded-lg border border-zinc-200 bg-white">
+    <div className="overflow-hidden rounded-lg border border-fynd-border bg-white shadow-fynd">
       <div className="overflow-x-auto">
         <DndContext
           sensors={sensors}
@@ -87,7 +87,7 @@ export function CapabilityTable({
           onDragEnd={onDragEnd}
         >
           <table className="w-full min-w-[1120px] border-collapse text-left">
-            <thead className="bg-zinc-50 text-xs font-semibold uppercase tracking-wider text-zinc-400">
+            <thead className="bg-fynd-surface-20 text-xs font-semibold uppercase tracking-wider text-fynd-muted">
               <tr>
                 <th className="w-10 px-3 py-3" />
                 <th className="px-3 py-3">Capability</th>
@@ -130,7 +130,7 @@ export function CapabilityTable({
       </div>
 
       {!hasRows ? (
-        <div className="border-t border-zinc-100 px-4 py-8 text-center text-sm text-zinc-400">
+        <div className="border-t border-fynd-iron px-4 py-8 text-center text-sm text-fynd-muted">
           No capabilities match the current filters.
         </div>
       ) : null}

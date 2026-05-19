@@ -65,16 +65,29 @@ type CapabilityCardProps = {
 function iconContainerClass(status: SupportStatus) {
   switch (merchantStatus(status)) {
     case 'supported':
-      return 'bg-green-50 text-green-700'
+      return 'bg-fynd-success-20 text-fynd-success-80 ring-fynd-success-20'
     case 'partial':
-      return 'bg-amber-50 text-amber-700'
+      return 'bg-fynd-warning-20 text-fynd-warning-80 ring-fynd-warning-20'
     case 'planned':
-      return 'bg-violet-50 text-violet-600'
+      return 'bg-fynd-primarySoft text-fynd-primaryHover ring-fynd-primarySoft'
     case 'not-supported':
     case 'na':
-      return 'bg-zinc-100 text-zinc-400'
+      return 'bg-fynd-surface-20 text-fynd-muted ring-fynd-border'
     default:
-      return 'bg-zinc-100 text-zinc-400'
+      return 'bg-fynd-surface-20 text-fynd-muted ring-fynd-border'
+  }
+}
+
+function statusTextClass(status: SupportStatus) {
+  switch (merchantStatus(status)) {
+    case 'supported':
+      return 'text-fynd-success-80'
+    case 'partial':
+      return 'text-fynd-warning-80'
+    case 'planned':
+      return 'text-fynd-primaryHover'
+    default:
+      return 'text-fynd-muted'
   }
 }
 
@@ -88,10 +101,10 @@ export function CapabilityCard({ capability, channel }: CapabilityCardProps) {
   const label = statusMerchantLabel(status)
 
   return (
-    <article className="flex min-h-[80px] items-start gap-3 bg-white p-4 transition-colors duration-100 hover:bg-zinc-50">
+    <article className="flex min-h-[96px] items-start gap-3 bg-white p-4 transition duration-150 hover:bg-fynd-surface-10 hover:shadow-fynd-hover">
       <div
         className={classNames(
-          'flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg',
+          'flex h-10 w-10 flex-shrink-0 items-center justify-center rounded ring-1',
           iconContainerClass(status),
         )}
       >
@@ -101,8 +114,8 @@ export function CapabilityCard({ capability, channel }: CapabilityCardProps) {
       <div className="min-w-0 flex-1">
         <h3
           className={classNames(
-            'text-sm font-medium',
-            muted ? 'text-zinc-400' : 'text-zinc-800',
+            'text-sm font-semibold',
+            muted ? 'text-fynd-muted' : 'text-fynd-mako',
           )}
         >
           {capability.name}
@@ -110,23 +123,32 @@ export function CapabilityCard({ capability, channel }: CapabilityCardProps) {
         <p
           className={classNames(
             'mt-0.5 text-xs leading-relaxed',
-            muted ? 'text-zinc-400 opacity-70' : 'text-zinc-500',
+            muted ? 'text-fynd-muted opacity-70' : 'text-fynd-subdued',
           )}
         >
           {capability.description}
         </p>
       </div>
 
-      <div className="mt-1 flex-shrink-0" aria-label={label}>
+      <div
+        className={classNames(
+          'mt-1 flex flex-shrink-0 items-center gap-1.5 text-[11px] font-medium',
+          statusTextClass(status),
+        )}
+        aria-label={label}
+      >
         {merchantSafeStatus === 'planned' ? (
-          <span className="rounded-full bg-violet-100 px-1.5 py-0.5 text-[10px] font-medium text-violet-700">
+          <span className="rounded-full bg-fynd-primarySoft px-1.5 py-0.5 text-[10px] font-medium text-fynd-primaryHover">
             Soon
           </span>
         ) : null}
 
         {merchantSafeStatus === 'supported' ? (
           <span
-            className={classNames('block h-1.5 w-1.5 rounded-full', statusDotColor(status))}
+            className={classNames(
+              'block h-1.5 w-1.5 rounded-full',
+              statusDotColor(status),
+            )}
           />
         ) : null}
 
@@ -138,7 +160,7 @@ export function CapabilityCard({ capability, channel }: CapabilityCardProps) {
                   <button
                     type="button"
                     className={classNames(
-                      'block h-1.5 w-1.5 rounded-full outline-none ring-offset-2 focus-visible:ring-2 focus-visible:ring-amber-400',
+                      'block h-1.5 w-1.5 rounded-full outline-none ring-offset-2 focus-visible:ring-2 focus-visible:ring-fynd-warning-50',
                       statusDotColor(status),
                     )}
                     aria-label={`${label}: ${support.note}`}
@@ -159,7 +181,10 @@ export function CapabilityCard({ capability, channel }: CapabilityCardProps) {
 
         {merchantSafeStatus === 'not-supported' ? (
           <span
-            className={classNames('block h-1.5 w-1.5 rounded-full', statusDotColor(status))}
+            className={classNames(
+              'block h-1.5 w-1.5 rounded-full',
+              statusDotColor(status),
+            )}
           />
         ) : null}
       </div>

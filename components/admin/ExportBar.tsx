@@ -18,14 +18,14 @@ export function ExportBar({
   onReset,
 }: ExportBarProps) {
   return (
-    <div className="flex flex-col gap-3 rounded-lg border border-zinc-200 bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
+    <div className="flex flex-col gap-3 rounded-lg border border-fynd-border bg-white p-4 shadow-fynd sm:flex-row sm:items-center sm:justify-between">
       <DiffSummary diffSummary={diffSummary} />
       <div className="flex flex-wrap gap-2">
         <button
           type="button"
           onClick={onReset}
           disabled={!isDirty}
-          className="inline-flex h-9 items-center justify-center gap-2 rounded-md border border-zinc-200 px-3 text-xs font-medium text-zinc-600 transition-colors hover:bg-zinc-50 disabled:cursor-not-allowed disabled:opacity-50"
+          className="inline-flex h-9 items-center justify-center gap-2 rounded border border-fynd-border px-3 text-xs font-medium text-fynd-subdued transition-colors hover:bg-fynd-surface-20 disabled:cursor-not-allowed disabled:opacity-50"
         >
           <RotateCcw className="h-3.5 w-3.5" aria-hidden="true" />
           Reset
@@ -33,7 +33,7 @@ export function ExportBar({
         <button
           type="button"
           onClick={onExport}
-          className="inline-flex h-9 items-center justify-center gap-2 rounded-md bg-zinc-900 px-3 text-xs font-medium text-white transition-colors hover:bg-zinc-800"
+          className="inline-flex h-9 items-center justify-center gap-2 rounded bg-fynd-primary px-3 text-xs font-medium text-white transition-colors hover:bg-fynd-primaryHover"
         >
           <Download className="h-3.5 w-3.5" aria-hidden="true" />
           Export JSON

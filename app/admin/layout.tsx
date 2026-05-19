@@ -14,14 +14,24 @@ export default async function AdminLayout({
   }
 
   return (
-    <div className="min-h-screen bg-zinc-50">
-      <header className="border-b border-zinc-200 bg-white">
+    <div className="min-h-screen bg-fynd-surface-20">
+      <header className="sticky top-0 z-20 border-b border-fynd-border bg-white shadow-fynd">
         <div className="mx-auto flex min-h-14 w-full max-w-7xl items-center justify-between px-4 sm:px-6">
-          <p className="text-sm font-medium text-zinc-800">Capability config</p>
+          <div className="flex items-center gap-3">
+            <span className="flex h-8 w-8 items-center justify-center rounded bg-fynd-primary text-xs font-semibold text-white">
+              F
+            </span>
+            <div>
+              <p className="text-sm font-semibold text-fynd-mako">
+                Capability config
+              </p>
+              <p className="text-[11px] text-fynd-muted">Fynd Payments</p>
+            </div>
+          </div>
           <form action="/api/admin/logout" method="post">
             <button
               type="submit"
-              className="rounded-md border border-zinc-200 px-3 py-1.5 text-xs font-medium text-zinc-600 transition-colors hover:bg-zinc-50 hover:text-zinc-900"
+              className="rounded border border-fynd-border px-3 py-1.5 text-xs font-medium text-fynd-subdued transition-colors hover:bg-fynd-surface-20 hover:text-fynd-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fynd-primary/30"
             >
               Sign out
             </button>

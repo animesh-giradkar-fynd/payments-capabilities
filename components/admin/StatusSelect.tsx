@@ -17,7 +17,7 @@ export function StatusSelect({ value, onChange, label }: StatusSelectProps) {
       onChange={(event) => onChange(event.target.value as SupportStatus)}
       aria-label={label}
       className={classNames(
-        'h-8 w-full min-w-32 rounded-md border px-2 text-xs font-medium outline-none transition-colors focus:ring-2 focus:ring-zinc-300',
+        'h-8 w-full min-w-32 rounded border px-2 text-xs font-medium outline-none transition-colors focus:ring-2 focus:ring-fynd-primary/30',
         statusAdminColors(value),
       )}
     >

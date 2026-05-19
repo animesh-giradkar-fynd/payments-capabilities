@@ -63,7 +63,7 @@ function EditableText({
           onKeyDown={onKeyDown}
           rows={2}
           className={classNames(
-            'w-full resize-none rounded-md border border-zinc-300 bg-white px-2 py-1 text-xs text-zinc-700 outline-none focus:ring-2 focus:ring-zinc-300',
+            'w-full resize-none rounded border border-fynd-border bg-white px-2 py-1 text-xs text-fynd-mako outline-none focus:border-fynd-primary focus:ring-2 focus:ring-fynd-primary/30',
             className,
           )}
         />
@@ -78,7 +78,7 @@ function EditableText({
         onBlur={commit}
         onKeyDown={onKeyDown}
         className={classNames(
-          'w-full rounded-md border border-zinc-300 bg-white px-2 py-1 text-sm font-medium text-zinc-800 outline-none focus:ring-2 focus:ring-zinc-300',
+          'w-full rounded border border-fynd-border bg-white px-2 py-1 text-sm font-medium text-fynd-mako outline-none focus:border-fynd-primary focus:ring-2 focus:ring-fynd-primary/30',
           className,
         )}
       />
@@ -164,14 +164,14 @@ export function TableCapabilityRow({
       ref={setNodeRef}
       style={style}
       className={classNames(
-        'border-t border-zinc-100 bg-white align-top',
+        'border-t border-fynd-iron bg-white align-top transition-colors hover:bg-fynd-surface-10',
         isDragging && 'relative z-10 shadow-lg',
       )}
     >
       <td className="w-10 px-3 py-3">
         <button
           type="button"
-          className="inline-flex h-8 w-8 items-center justify-center rounded-md text-zinc-300 transition-colors hover:bg-zinc-50 hover:text-zinc-500"
+          className="inline-flex h-8 w-8 items-center justify-center rounded text-fynd-muted transition-colors hover:bg-fynd-primarySoft hover:text-fynd-primaryHover"
           aria-label={`Reorder ${capability.name}`}
           {...attributes}
           {...listeners}
@@ -185,7 +185,7 @@ export function TableCapabilityRow({
           onCommit={(name) =>
             onCapabilityChange(categoryId, capability.id, { name })
           }
-          className="text-sm font-medium text-zinc-800"
+          className="text-sm font-semibold text-fynd-mako"
         />
         <EditableText
           value={capability.description}
@@ -193,9 +193,9 @@ export function TableCapabilityRow({
             onCapabilityChange(categoryId, capability.id, { description })
           }
           multiline
-          className="mt-1 text-xs leading-relaxed text-zinc-500"
+          className="mt-1 text-xs leading-relaxed text-fynd-subdued"
         />
-        <p className="mt-1 font-mono text-[11px] text-zinc-300">
+        <p className="mt-1 font-mono text-[11px] text-fynd-muted">
           {capability.id}
         </p>
       </td>
@@ -207,7 +207,7 @@ export function TableCapabilityRow({
               icon: event.target.value,
             })
           }
-          className="h-8 w-32 rounded-md border border-zinc-200 px-2 text-xs text-zinc-600 outline-none focus:border-zinc-400"
+          className="h-8 w-32 rounded border border-fynd-border px-2 text-xs text-fynd-subdued outline-none focus:border-fynd-primary"
           aria-label={`${capability.name} icon`}
         />
       </td>
@@ -224,7 +224,7 @@ export function TableCapabilityRow({
               value={support.note ?? ''}
               onChange={(event) => updateNote(channel, event.target.value)}
               placeholder="Note"
-              className="mt-2 h-8 w-full rounded-md border border-zinc-200 px-2 text-xs text-zinc-600 outline-none transition-colors placeholder:text-zinc-300 focus:border-zinc-400"
+              className="mt-2 h-8 w-full rounded border border-fynd-border px-2 text-xs text-fynd-subdued outline-none transition-colors placeholder:text-fynd-muted focus:border-fynd-primary"
               aria-label={`${capability.name} ${CHANNEL_LABELS[channel]} note`}
             />
           </td>
@@ -232,7 +232,7 @@ export function TableCapabilityRow({
       })}
       <td className="px-3 py-3">
         <div className="flex flex-col gap-2">
-          <label className="flex items-center gap-2 text-xs text-zinc-500">
+          <label className="flex items-center gap-2 text-xs text-fynd-subdued">
             <input
               type="checkbox"
               checked={capability.showOnMerchantView}
@@ -241,11 +241,11 @@ export function TableCapabilityRow({
                   showOnMerchantView: event.target.checked,
                 })
               }
-              className="h-4 w-4 rounded border-zinc-300"
+              className="h-4 w-4 rounded border-fynd-border accent-fynd-primary"
             />
             Merchant
           </label>
-          <label className="flex items-center gap-2 text-xs text-zinc-500">
+          <label className="flex items-center gap-2 text-xs text-fynd-subdued">
             <input
               type="checkbox"
               checked={capability.internalOnly ?? false}
@@ -254,14 +254,14 @@ export function TableCapabilityRow({
                   internalOnly: event.target.checked,
                 })
               }
-              className="h-4 w-4 rounded border-zinc-300"
+              className="h-4 w-4 rounded border-fynd-border accent-fynd-primary"
             />
             Internal
           </label>
           <button
             type="button"
             onClick={() => onRemove(categoryId, capability.id)}
-            className="mt-1 inline-flex h-8 w-fit items-center gap-1 rounded-md border border-red-100 px-2 text-xs font-medium text-red-500 transition-colors hover:bg-red-50"
+            className="mt-1 inline-flex h-8 w-fit items-center gap-1 rounded border border-fynd-error-20 px-2 text-xs font-medium text-fynd-error-50 transition-colors hover:bg-fynd-error-20"
           >
             <Trash2 className="h-3.5 w-3.5" aria-hidden="true" />
             Delete
