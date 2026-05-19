@@ -1,0 +1,308 @@
+{
+  "categories": [
+    {
+      "id": "methods",
+      "name": "Payment methods",
+      "description": "Ways a customer can complete a payment in each commerce channel.",
+      "showOnMerchantView": true,
+      "capabilities": [
+        {
+          "id": "upi",
+          "name": "UPI",
+          "description": "UPI collect, intent, QR, and related India payment flows.",
+          "icon": "ArrowLeftRight",
+          "showOnMerchantView": true,
+          "channels": {
+            "storefront": { "status": "supported" },
+            "storeOS": {
+              "status": "partial",
+              "note": "QR scan only — intent, collect, and autopay flows are not available in Store OS."
+            },
+            "agenticCheckout": { "status": "planned" }
+          }
+        },
+        {
+          "id": "cards",
+          "name": "Cards",
+          "description": "Credit and debit card payments across available processors.",
+          "icon": "CreditCard",
+          "showOnMerchantView": true,
+          "channels": {
+            "storefront": { "status": "supported" },
+            "storeOS": { "status": "supported" },
+            "agenticCheckout": {
+              "status": "partial",
+              "note": "Via payment link redirect — embedded card entry is not available in Agentic checkout."
+            }
+          }
+        },
+        {
+          "id": "net-banking",
+          "name": "Net banking",
+          "description": "Bank redirect payments for online checkout.",
+          "icon": "Building2",
+          "showOnMerchantView": true,
+          "channels": {
+            "storefront": { "status": "supported" },
+            "storeOS": { "status": "na" },
+            "agenticCheckout": { "status": "not-supported" }
+          }
+        },
+        {
+          "id": "wallets",
+          "name": "Wallets",
+          "description": "Digital wallets supported by the online payment gateway.",
+          "icon": "Wallet",
+          "showOnMerchantView": true,
+          "channels": {
+            "storefront": { "status": "supported" },
+            "storeOS": { "status": "na" },
+            "agenticCheckout": { "status": "planned" }
+          }
+        },
+        {
+          "id": "cod",
+          "name": "Cash on delivery",
+          "description": "Pay at delivery for eligible orders and serviceable destinations.",
+          "icon": "PackageCheck",
+          "showOnMerchantView": true,
+          "channels": {
+            "storefront": { "status": "supported" },
+            "storeOS": { "status": "na" },
+            "agenticCheckout": { "status": "not-supported" }
+          }
+        },
+        {
+          "id": "cod-surcharge",
+          "name": "COD surcharge",
+          "description": "Additional fee controls for cash-on-delivery orders.",
+          "icon": "ReceiptText",
+          "showOnMerchantView": true,
+          "channels": {
+            "storefront": { "status": "supported" },
+            "storeOS": { "status": "na" },
+            "agenticCheckout": { "status": "not-supported" }
+          }
+        },
+        {
+          "id": "emi-pay-later",
+          "name": "EMI / Pay later",
+          "description": "Instalment and deferred-payment options exposed by gateways.",
+          "icon": "CalendarClock",
+          "showOnMerchantView": true,
+          "channels": {
+            "storefront": { "status": "supported" },
+            "storeOS": { "status": "na" },
+            "agenticCheckout": { "status": "not-supported" }
+          }
+        },
+        {
+          "id": "cash",
+          "name": "Cash",
+          "description": "Cash collection at the physical store counter.",
+          "icon": "Banknote",
+          "showOnMerchantView": true,
+          "channels": {
+            "storefront": { "status": "na" },
+            "storeOS": { "status": "supported" },
+            "agenticCheckout": { "status": "na" }
+          }
+        },
+        {
+          "id": "international-payments",
+          "name": "International payments",
+          "description": "Payments from cards or instruments issued outside India.",
+          "icon": "Globe",
+          "showOnMerchantView": true,
+          "channels": {
+            "storefront": {
+              "status": "partial",
+              "note": "Gateway-gated — availability depends on configured payment gateway and merchant enablement."
+            },
+            "storeOS": { "status": "na" },
+            "agenticCheckout": { "status": "not-supported" }
+          }
+        },
+        {
+          "id": "split-tender",
+          "name": "Split tender",
+          "description": "Combine more than one tender type for a single store payment.",
+          "icon": "SplitSquareHorizontal",
+          "showOnMerchantView": true,
+          "channels": {
+            "storefront": { "status": "na" },
+            "storeOS": { "status": "supported" },
+            "agenticCheckout": { "status": "na" }
+          }
+        }
+      ]
+    },
+    {
+      "id": "checkout",
+      "name": "Checkout experience",
+      "description": "Features that shape payment collection before the transaction is complete.",
+      "showOnMerchantView": true,
+      "capabilities": [
+        {
+          "id": "checkout-extensions",
+          "name": "Checkout extensions",
+          "description": "Custom checkout fields and rules that can influence payment behavior.",
+          "icon": "Puzzle",
+          "showOnMerchantView": true,
+          "channels": {
+            "storefront": { "status": "supported" },
+            "storeOS": { "status": "na" },
+            "agenticCheckout": {
+              "status": "partial",
+              "note": "COD availability field only — full extensions not supported"
+            }
+          }
+        },
+        {
+          "id": "saved-instruments",
+          "name": "Saved instruments",
+          "description": "Saved payment methods for faster repeat online checkout.",
+          "icon": "ShieldCheck",
+          "showOnMerchantView": true,
+          "channels": {
+            "storefront": { "status": "supported" },
+            "storeOS": { "status": "not-supported" },
+            "agenticCheckout": { "status": "not-supported" }
+          }
+        },
+        {
+          "id": "payment-links",
+          "name": "Payment links",
+          "description": "Generate a secure payment URL and send it to the customer.",
+          "icon": "Link",
+          "showOnMerchantView": true,
+          "channels": {
+            "storefront": { "status": "supported" },
+            "storeOS": { "status": "not-supported" },
+            "agenticCheckout": { "status": "supported" }
+          }
+        },
+        {
+          "id": "customer-verification",
+          "name": "Customer verification",
+          "description": "Attach or verify customer identity before payment completion.",
+          "icon": "UserCheck",
+          "showOnMerchantView": true,
+          "channels": {
+            "storefront": { "status": "supported" },
+            "storeOS": {
+              "status": "partial",
+              "note": "Counter staff can attach customer details, but online checkout identity flows are not used."
+            },
+            "agenticCheckout": { "status": "supported" }
+          }
+        }
+      ]
+    },
+    {
+      "id": "post-payment",
+      "name": "Post-payment operations",
+      "description": "Capabilities available after a payment has been captured.",
+      "showOnMerchantView": true,
+      "capabilities": [
+        {
+          "id": "refunds",
+          "name": "Refunds",
+          "description": "Create and track refunds for successful payments.",
+          "icon": "RotateCcw",
+          "showOnMerchantView": true,
+          "channels": {
+            "storefront": { "status": "supported" },
+            "storeOS": { "status": "supported" },
+            "agenticCheckout": {
+              "status": "partial",
+              "note": "Payment-link payments can be refunded through Razorpay; conversational refund management is not built yet."
+            }
+          }
+        },
+        {
+          "id": "webhooks",
+          "name": "Webhooks",
+          "description": "Internal event delivery for payment and refund lifecycle updates.",
+          "icon": "Webhook",
+          "showOnMerchantView": false,
+          "internalOnly": true,
+          "channels": {
+            "storefront": { "status": "supported" },
+            "storeOS": { "status": "supported" },
+            "agenticCheckout": { "status": "wip" }
+          }
+        },
+        {
+          "id": "settlement-reports",
+          "name": "Settlement reports",
+          "description": "Internal settlement and reconciliation reporting.",
+          "icon": "BarChart3",
+          "showOnMerchantView": false,
+          "internalOnly": true,
+          "channels": {
+            "storefront": { "status": "supported" },
+            "storeOS": { "status": "partial" },
+            "agenticCheckout": { "status": "planned" }
+          }
+        }
+      ]
+    },
+    {
+      "id": "gateways",
+      "name": "Payment gateways",
+      "description": "Gateway integrations available in each channel.",
+      "showOnMerchantView": true,
+      "capabilities": [
+        {
+          "id": "razorpay",
+          "name": "Razorpay",
+          "description": "Primary gateway for online, POS card, and payment-link flows.",
+          "icon": "Zap",
+          "showOnMerchantView": true,
+          "channels": {
+            "storefront": { "status": "supported" },
+            "storeOS": { "status": "supported" },
+            "agenticCheckout": { "status": "supported" }
+          }
+        },
+        {
+          "id": "juspay",
+          "name": "Juspay",
+          "description": "Online payment gateway option for storefront checkout.",
+          "icon": "Settings2",
+          "showOnMerchantView": true,
+          "channels": {
+            "storefront": { "status": "supported" },
+            "storeOS": { "status": "not-supported" },
+            "agenticCheckout": { "status": "not-supported" }
+          }
+        },
+        {
+          "id": "payu",
+          "name": "PayU",
+          "description": "Online payment gateway option for storefront checkout.",
+          "icon": "Settings2",
+          "showOnMerchantView": true,
+          "channels": {
+            "storefront": { "status": "supported" },
+            "storeOS": { "status": "not-supported" },
+            "agenticCheckout": { "status": "not-supported" }
+          }
+        },
+        {
+          "id": "custom-gateway",
+          "name": "Custom gateway",
+          "description": "Merchant-specific gateway integrations for online checkout.",
+          "icon": "Settings2",
+          "showOnMerchantView": true,
+          "channels": {
+            "storefront": { "status": "supported" },
+            "storeOS": { "status": "not-supported" },
+            "agenticCheckout": { "status": "not-supported" }
+          }
+        }
+      ]
+    }
+  ]
+}
